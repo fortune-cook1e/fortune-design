@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 const path = require('path')
+const fs = require('fs')
+const util = require('util')
 const { rimrafSync } = require('rimraf')
 const { src, dest, pipe, series, parallel } = require('gulp')
 const babel = require('gulp-babel')
@@ -7,11 +9,14 @@ const less = require('gulp-less')
 const rename = require('gulp-rename')
 const postcss = require('gulp-postcss')
 const cssnano = require('cssnano')
+const { proxyComponentDirectories } = require('./proxyDirectories')
+const pkg = require('../package.json')
 
 const postcssPresetEnv = require('postcss-preset-env')
 const sourcemaps = require('gulp-sourcemaps')
 const babelConfig = require('../babel.config')
 const resolve = dir => path.resolve(__dirname, dir)
+const writeFile = util.promisify(fs.writeFile)
 
 const dirRoot = {
   src: resolve('../src'),
@@ -69,4 +74,36 @@ function minifyCss() {
     .pipe(dest(dirRoot.dist))
 }
 
-exports.build = series(clean, parallel(buidCjs, buildEsm, buildLess), minifyCss)
+// src 的 styles 文件进行复制
+// src/Button/styles -> lib/Button/styles
+function copyLessStylesheets() {
+  return src(`${dirRoot.src}/**/*.less`).pipe(dest(dirRoot.lib))
+}
+
+function copyDocs() {
+  return src(['../README.md', '../LICENSE']).pipe(dest(dirRoot.lib))
+}
+
+// 创建 lib 文件夹下的 package.json 文件
+function createPkgFile(done) {
+  delete pkg.devDependencies
+  delete pkg.files
+
+  pkg.main = 'cjs/index.js'
+  pkg.module = 'esm/index.js'
+  pkg.typings = 'esm/index.d.ts'
+
+  writeFile(`${dirRoot.lib}/package.json`, JSON.stringify(pkg, null, 2) + '\n')
+    .then(() => {
+      done()
+    })
+    .catch(err => {
+      if (err) console.error(err.toString())
+    })
+}
+
+exports.build = series(
+  clean,
+  parallel(buidCjs, buildEsm, buildLess, copyLessStylesheets),
+  parallel(minifyCss, copyDocs, createPkgFile, proxyComponentDirectories)
+)

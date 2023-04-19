@@ -14,7 +14,6 @@
     "lint:tsx": "eslint --ext tsx --ext ts src && tsc --noEmit"
   },
   "files": [
-    "CHANGELOG.md",
     "README.md",
     "lib"
   ],
