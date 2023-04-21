@@ -4,12 +4,15 @@
   "description": "A react ui component library",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
-  "typings": "lib/esm/index.d.ts",
+  "types": "lib/esm/index.d.ts",
   "scripts": {
-    "dev": "pnpm -C docs install && pnpm -C docs dev",
-    "build": "webpack --mode production",
-    "gulp": "gulp build --gulpfile scripts/gulpFile.js",
+    "dev:cmp": "pnpm run clear && NODE_ENV=development rollup -c -w --bundleConfigAsCjs",
+    "dev:docs": "pnpm -C docs install && pnpm -C docs dev",
+    "build:rollup": "pnpm run clear && NODE_ENV=production rollup -c --bundleConfigAsCjs",
+    "build:gulp": "gulp build --gulpfile scripts/gulpFile.js",
+    "build:webpack": "webpack --mode production",
     "lint": "pnpm run lint:tsx && pnpm run lint:style",
+    "clear": "rimraf lib",
     "lint:style": "stylelint src/**/*.less",
     "lint:tsx": "eslint --ext tsx --ext ts src && tsc --noEmit"
   },
@@ -42,6 +45,11 @@
     "@babel/preset-typescript": "^7.21.4",
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
+    "@rollup/plugin-alias": "^5.0.0",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
@@ -56,6 +64,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "fs-extra": "^11.1.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-less": "^5.0.0",
@@ -73,6 +82,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "^5.0.0",
+    "rollup": "^3.20.6",
+    "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.34.1",
     "style-loader": "^3.3.2",
     "stylelint": "^15.5.0",
     "stylelint-config-prettier": "^9.0.5",
@@ -80,9 +94,5 @@
     "typescript": "^5.0.4",
     "webpack": "^5.79.0",
     "webpack-cli": "^5.0.1"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
   }
 }

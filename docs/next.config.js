@@ -60,7 +60,8 @@ const nextConfig = {
 
     if (__DEV__) {
       Object.assign(config.resolve.alias, {
-        'fortune-design': resolvePath('../src'),
+        // Tip: pnpm 开发模式下这种情况不适用 所以才用软链的形式开发
+        // 'fortune-design': resolvePath('../src'),
         react: resolvePath('./node_modules/react'),
         'react-dom': resolvePath('./node_modules/react-dom')
       })

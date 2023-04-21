@@ -2,10 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@/*": ["./*"],
-      "fortune-design": ["../src"],
-      "fortune-design/*": ["../src/*"],
-      "react": ["./node_modules/@types/react"]
+      "@/*": ["./*"]
     },
     "incremental": true
   }

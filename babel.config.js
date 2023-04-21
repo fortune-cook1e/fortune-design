@@ -8,7 +8,11 @@ module.exports = (api, options) => {
   }
 
   return {
-    presets: [['@babel/preset-env', { modules }], ['@babel/preset-react'], '@babel/typescript'],
+    presets: [
+      ['@babel/preset-env', { modules }],
+      ['@babel/preset-react'],
+      '@babel/preset-typescript'
+    ],
     plugins: [
       [
         '@babel/plugin-transform-runtime',
