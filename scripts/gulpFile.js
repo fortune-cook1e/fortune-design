@@ -3,7 +3,7 @@ const path = require('path')
 const fs = require('fs')
 const util = require('util')
 const { rimrafSync } = require('rimraf')
-const { src, dest, pipe, series, parallel } = require('gulp')
+const { src, dest, series, parallel, watch } = require('gulp')
 const babel = require('gulp-babel')
 const less = require('gulp-less')
 const rename = require('gulp-rename')
@@ -39,7 +39,7 @@ function clean(done) {
   done()
 }
 
-function buidCjs() {
+function buildCjs() {
   return src(tsSources).pipe(babel(babelConfig())).pipe(dest(dirRoot.cjs))
 }
 
@@ -91,7 +91,7 @@ function createPkgFile(done) {
 
   pkg.main = 'cjs/index.js'
   pkg.module = 'esm/index.js'
-  pkg.typings = 'esm/index.d.ts'
+  pkg.types = 'esm/index.d.ts'
 
   writeFile(`${dirRoot.lib}/package.json`, JSON.stringify(pkg, null, 2) + '\n')
     .then(() => {
@@ -102,8 +102,19 @@ function createPkgFile(done) {
     })
 }
 
+function watchFiles() {
+  const watcher = watch(tsSources)
+  watcher.on('change', filePath => {
+    console.log('File ' + filePath + ' was changed, running tasks...')
+    const cjsPath = filePath.replace('src/', 'cjs/').replace(/\/[a-z|A-Z]+.(tsx|ts)/, '')
+
+    return src(filePath).pipe(babel(babelConfig())).pipe(dest(cjsPath))
+  })
+}
+
+// exports.dev = series(clean, buildCjs, watchFiles)
 exports.build = series(
   clean,
-  parallel(buidCjs, buildEsm, buildLess, copyLessStylesheets),
+  parallel(buildCjs, buildEsm, buildLess, copyLessStylesheets),
   parallel(minifyCss, copyDocs, createPkgFile, proxyComponentDirectories)
 )

@@ -13,7 +13,7 @@ module.exports = {
   output: {
     path: resolve('lib/dist'),
     filename,
-    library: 'fortune',
+    library: 'fortune-design',
     libraryTarget: 'umd'
   },
   externals: {
