@@ -6,7 +6,8 @@ module.exports = {
   extends: ['alloy', 'alloy/react', 'alloy/typescript', 'prettier'],
   env: {
     browser: true,
-    es6: true
+    es6: true,
+    mocha: true
   },
   globals: {
     JSX: true,
