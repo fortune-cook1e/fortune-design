@@ -3,6 +3,8 @@
 const path = require('path')
 const webpack = require('webpack')
 
+const jstsRegex = /\.(js|jsx|ts|tsx)$/
+
 /**
  * @type {import('webpack').Configuration}
  */
@@ -12,7 +14,7 @@ module.exports = {
   },
   mode: 'development',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
       '@test': path.resolve(__dirname, './test')
     }
@@ -35,7 +37,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts|tsx?$/,
+        test: jstsRegex,
         use: [
           {
             loader: 'babel-loader',

@@ -4,17 +4,19 @@
  */
 module.exports = function (config) {
   config.set({
-    // frameworks: ['mocha', 'chai-dom', 'sinon-chai', 'webpack'],
-    frameworks: ['mocha', 'chai', 'webpack'],
-    files: ['src/**/*.spec.+(ts|tsx)'],
+    frameworks: ['mocha', 'chai-dom', 'sinon-chai', 'webpack'],
+    files: ['test/setupTest.js'],
     basePath: '',
     preprocessors: {
-      'test/setupTestUtils.js': ['webpack'],
+      'test/setupTest.js': ['webpack'],
       'src/**/*.spec.+(js|ts|tsx)': ['webpack']
     },
     plugins: [
       'karma-mocha',
       'karma-chai',
+      'karma-chai-dom',
+      'karma-sinon-chai',
+      'karma-spec-reporter',
       'karma-webpack',
       'karma-chrome-launcher',
       'karma-coverage',
@@ -30,12 +32,12 @@ module.exports = function (config) {
     webpack: require('./webpack.karma.js'),
     webpackMiddleware: {
       noInfo: true
+    },
+    customLaunchers: {
+      ChromeCi: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
     }
-    // customLaunchers: {
-    //   ChromeCi: {
-    //     base: 'Chrome',
-    //     flags: ['--no-sandbox']
-    //   }
-    // }
   })
 }

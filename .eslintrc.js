@@ -20,6 +20,8 @@ module.exports = {
     }
   },
   rules: {
+    'no-implicit-coercion': OFF,
+
     'simple-import-sort/imports': ERROR,
     'simple-import-sort/exports': ERROR,
 
