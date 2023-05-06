@@ -3,6 +3,7 @@
 
 const { resolve } = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const markdownRenderer = require('./scripts/markdownRender')
 
 const resolvePath = dir => resolve(__dirname, dir)
 
@@ -46,6 +47,32 @@ const nextConfig = {
           //     }
           //   }
           // }
+        }
+      ]
+    })
+
+    config.module.rules.push({
+      test: /\.md$/,
+      use: [
+        {
+          loader: 'react-code-view/webpack-md-loader',
+          options: {
+            // parseLanguages: ['typescript','rust','java']
+            markedOptions: {
+              renderer: markdownRenderer([
+                'javascript',
+                'bash',
+                'xml',
+                'css',
+                'less',
+                'json',
+                'diff',
+                'typescript'
+              ])
+              // Pass options to marked
+              // See https://marked.js.org/using_advanced#options
+            }
+          }
         }
       ]
     })

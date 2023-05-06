@@ -14,8 +14,10 @@
     "@types/react-dom": "18.0.11",
     "autoprefixer": "10.4.14",
     "fortune-design": "^1.0.2",
+    "lodash": "^4.17.21",
     "next": "13.3.0",
     "react": "18.2.0",
+    "react-code-view": "^2.2.1",
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.1",
     "typescript": "5.0.4"
@@ -26,6 +28,7 @@
     "less-loader": "^11.1.0",
     "mini-css-extract-plugin": "^2.7.5",
     "postcss": "8.4.22",
-    "postcss-loader": "^7.2.4"
+    "postcss-loader": "^7.2.4",
+    "prop-types": "^15.8.1"
   }
 }
