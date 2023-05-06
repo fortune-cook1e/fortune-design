@@ -1,16 +1,13 @@
 # React Code View
 
+---
+
+**React Code View** can render source code in markdown documents. And brings you the ability to render React components with editable source code and live preview.
+
 <!--start-code-->
 
 ```js
-import React from 'react'
-import { render } from 'react-dom'
-
-const App = () => {
-  const [count, setCount] = React.useState(1)
-
-  return <span>3231321</span>
-}
+ReactDOM.render(<Button loading />)
 ```
 
 <!--end-code-->

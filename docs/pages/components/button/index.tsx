@@ -2,11 +2,11 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 import CodeView from 'react-code-view'
 import 'react-code-view/styles/react-code-view.css'
-
+import { Button } from 'fortune-design'
 const ButtonPage = () => {
   return (
     <div>
-      <CodeView>{require('./example.md')}</CodeView>
+      <CodeView dependencies={{ Button }}>{require('./button.md')}</CodeView>
     </div>
   )
 }
