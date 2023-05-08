@@ -3,11 +3,13 @@
 import CodeView from 'react-code-view'
 import 'react-code-view/styles/react-code-view.css'
 import { Button } from 'fortune-design'
+import DefaultLayout from '@/components/DefaultLayout'
+
 const ButtonPage = () => {
   return (
-    <div>
+    <DefaultLayout>
       <CodeView dependencies={{ Button }}>{require('./button.md')}</CodeView>
-    </div>
+    </DefaultLayout>
   )
 }
 
