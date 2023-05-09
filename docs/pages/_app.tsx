@@ -1,4 +1,5 @@
-import '@/styles/globals.css'
+import '@/styles/globals.less'
+import 'react-code-view/styles/react-code-view.css'
 
 import type { AppProps } from 'next/app'
 
