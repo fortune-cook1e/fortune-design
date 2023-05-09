@@ -17,12 +17,12 @@ const PageContent: FC<Props> = ({ children, category = 'components', dependencie
   const id = pathname.match(new RegExp(`\/${category}\/(\\S*)`))?.[1]
 
   return (
-    <div className='w-full h-full'>
+    <div className='w-full min-h-screen'>
       <HeaderNav />
-      <div className='flex w-full'>
+      <div className='flex w-full h-full'>
         <SideNav />
 
-        <div className='w-full'>
+        <div className='w-full p-8'>
           <CustomCodeView
             source={require(`../../pages/components/${id}/index.md`)}
             dependencies={dependencies}

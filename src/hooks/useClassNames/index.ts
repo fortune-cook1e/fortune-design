@@ -21,7 +21,6 @@ function useClassNames(str: string) {
 
   /**
    * @example
-   *
    * if str = 'button':
    * prefix('red', { active: true }) => 'fortune-button-red fortune-button-active'
    */
@@ -40,7 +39,6 @@ function useClassNames(str: string) {
 
   /**
    * @example
-   *
    * if str = 'button':
    * withClassPrefix('red', { active: true }) => 'fortune-button fortune-button-red fortune-button-active'
    */

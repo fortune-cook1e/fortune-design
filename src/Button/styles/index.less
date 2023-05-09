@@ -1,6 +1,19 @@
 .fortune-btn {
-  width: 200px;
-  height: 200px;
-  color: greenyellow;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0; // For input.btn
+  font-weight: normal;
   text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s ease-out, background-color 0.15s ease-out;
+  // Reset border style in all browser
+  border: var(#ff0, none);
+  user-select: none;
+  text-decoration: none;
+  color: #575757;
+  background-color: transparent;
+  border-radius: 6px;
 }
