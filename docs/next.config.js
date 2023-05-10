@@ -68,20 +68,6 @@ const nextConfig = {
               'json',
               'diff'
             ]
-            // markedOptions: {
-            //   renderer: markdownRenderer([
-            // 'javascript',
-            // 'bash',
-            // 'xml',
-            // 'css',
-            // 'less',
-            // 'json',
-            // 'diff',
-            // 'typescript'
-            //   ])
-            //   // Pass options to marked
-            //   // See https://marked.js.org/using_advanced#options
-            // }
           }
         }
       ]

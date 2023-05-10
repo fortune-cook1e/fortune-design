@@ -7,6 +7,7 @@ export interface ButtonProps {
   className?: string
   style?: React.CSSProperties
   active?: boolean
+  onClick?: () => void
   children?: ReactNode
   //
   // onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
@@ -25,16 +26,14 @@ export interface ButtonProps {
   // title?: string
 }
 
-const Button: FC<ButtonProps> = ({ loading = true, className, active, children }) => {
-  const { withClassPrefix, prefix, merge } = useClassNames('btn')
+const Button: FC<ButtonProps> = ({ loading = true, className, active, onClick, children }) => {
+  const { withClassPrefix, merge } = useClassNames('btn')
 
-  const classes = merge(className, withClassPrefix({ loading }))
-
-  console.log({ classes })
+  const classes = merge(className, withClassPrefix({ loading, active }))
 
   return (
-    <button className='fortune-btn'>
-      {loading ? 'loading..' : 'not loading'}-{children}
+    <button onClick={onClick} className={classes}>
+      {children}
     </button>
   )
 }

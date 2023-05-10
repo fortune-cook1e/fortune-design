@@ -1,0 +1,12 @@
+@import url('./variables.less');
+
+// Useful when adding focus ring to an element
+.with-focus-ring() {
+  &:focus-visible {
+    .focus-ring();
+  }
+}
+
+.focus-ring() {
+  outline: 3px solid var(--fortune-color-focus-ring);
+}

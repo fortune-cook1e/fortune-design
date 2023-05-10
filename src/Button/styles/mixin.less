@@ -1,0 +1,24 @@
+.button-activated(@rules) {
+  &:hover,
+  &:focus {
+    @rules();
+  }
+}
+
+.button-size(@height;@space-x;@font-size;@line-height;@icon-size) {
+  @space-y: ((@height - @line-height) / 2);
+
+  font-size: @font-size;
+  line-height: @line-height;
+  padding: @space-y @space-x;
+}
+
+.button-size-md() {
+  .button-size(
+    @height: 36px;
+    @space-x: 12px;
+    @font-size: 14px;
+    @line-height: 20px;
+    @icon-size: 16px;
+  );
+}

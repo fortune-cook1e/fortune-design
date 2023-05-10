@@ -1,3 +1,7 @@
+@import url('../../styles/variables.less');
+@import url('../styles/mixin.less');
+@import url('../../styles/utilities.less');
+
 .fortune-btn {
   display: inline-flex;
   align-items: center;
@@ -8,12 +12,20 @@
   vertical-align: middle;
   cursor: pointer;
   white-space: nowrap;
-  transition: color 0.15s ease-out, background-color 0.15s ease-out;
-  // Reset border style in all browser
-  border: var(#ff0, none);
+  transition: var(--fortune-btn-transtion);
   user-select: none;
   text-decoration: none;
-  color: #575757;
-  background-color: transparent;
-  border-radius: 6px;
+  color: var(--fortune-btn-default-text);
+  background-color: var(--fortune-btn-default-bg);
+  border-radius: var(--fortune-btn-default-radius);
+
+  .button-activated({
+    color: var(--fortune-btn-default-hover-text);
+    background-color: var(--fortune-btn-default-hover-bg);
+    text-decoration: none;
+  });
+
+  .button-size-md();
+
+  .with-focus-ring();
 }
