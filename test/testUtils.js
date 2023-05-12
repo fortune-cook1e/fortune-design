@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import { createRoot, findDOMNode } from 'react-dom/client'
 import { isCompositeComponent } from 'react-dom/test-utils'
 
-import { guid } from '../src/utils/guid'
+import { uuid } from '../src/utils/uuid'
 
 // Record every container created for rendering
 // Useful for doing a cleanup after each test case
@@ -57,8 +57,8 @@ export function getDOMNode(children) {
 }
 
 export function getTestDOMNode(children) {
-  const testId = guid()
-  const childTestId = guid()
+  const testId = uuid()
+  const childTestId = uuid()
   const { getByTestId } = testRender(
     <div data-testid={testId}>{React.cloneElement(children, { 'data-testid': childTestId })}</div>
   )

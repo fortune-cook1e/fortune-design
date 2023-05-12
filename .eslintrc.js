@@ -3,7 +3,12 @@ const WARNING = 1
 const ERROR = 2
 
 module.exports = {
-  extends: ['alloy', 'alloy/react', 'alloy/typescript', 'prettier'],
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'prettier'
+  ],
   env: {
     browser: true,
     es6: true,
@@ -21,6 +26,7 @@ module.exports = {
   },
   rules: {
     'no-implicit-coercion': OFF,
+    'max-params': OFF,
 
     'simple-import-sort/imports': ERROR,
     'simple-import-sort/exports': ERROR,

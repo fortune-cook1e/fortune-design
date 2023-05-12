@@ -7,6 +7,12 @@ dependencies:
   classnames:
     specifier: ^2.3.2
     version: 2.3.2
+  dom-lib:
+    specifier: ^3.1.6
+    version: 3.1.6
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
 
 devDependencies:
   '@babel/core':
@@ -78,9 +84,6 @@ devDependencies:
   eslint:
     specifier: ^8.38.0
     version: 8.38.0
-  eslint-config-alloy:
-    specifier: ^4.9.0
-    version: 4.9.0(@babel/preset-react@7.18.6)(@typescript-eslint/eslint-plugin@5.58.0)(@typescript-eslint/parser@5.58.0)(eslint-plugin-react@7.32.2)(eslint@8.38.0)(typescript@5.0.4)
   eslint-config-prettier:
     specifier: ^8.8.0
     version: 8.8.0(eslint@8.38.0)
@@ -90,6 +93,9 @@ devDependencies:
   eslint-plugin-react:
     specifier: ^7.32.2
     version: 7.32.2(eslint@8.38.0)
+  eslint-plugin-react-hooks:
+    specifier: ^4.6.0
+    version: 4.6.0(eslint@8.38.0)
   eslint-plugin-simple-import-sort:
     specifier: ^10.0.0
     version: 10.0.0(eslint@8.38.0)
@@ -162,9 +168,6 @@ devDependencies:
   lint-staged:
     specifier: ^13.2.1
     version: 13.2.1
-  lodash:
-    specifier: ^4.17.21
-    version: 4.17.21
   mocha:
     specifier: ^10.2.0
     version: 10.2.0
@@ -180,6 +183,9 @@ devDependencies:
   prettier:
     specifier: ^2.8.7
     version: 2.8.7
+  prop-types:
+    specifier: ^15.8.1
+    version: 15.8.1
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -1471,7 +1477,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
-    dev: true
 
   /@babel/template@7.20.7:
     resolution: {integrity: sha512-8SegXApWe6VoNw0r9JHpSteLKTpTiLZ4rMlGIm9JQ18KiCtyQiAMEazujAHrUS5flrcqYZa75ukev3P6QmUwUw==}
@@ -4367,6 +4372,12 @@ packages:
     resolution: {integrity: sha512-X7BJ2yElsnOJ30pZF4uIIDfBEVgF4XEBxL9Bxhy6dnrm5hkzqmsWHGTiHqRiITNhMyFLyAiWndIJP7Z1NTteDg==}
     dev: true
 
+  /dom-lib@3.1.6:
+    resolution: {integrity: sha512-xXEhStHDoAyfhnz8mqDwZ9rnqdqz/9BcrKd1UEw6BlA/l17emFb2dK7q8IX8ArU31pScSU9otEnL6wzvpoT5aw==}
+    dependencies:
+      '@babel/runtime': 7.21.0
+    dev: false
+
   /dom-serialize@2.2.1:
     resolution: {integrity: sha512-Yra4DbvoW7/Z6LBN560ZwXMjoNOSAN2wRsKFGc4iBeso+mpIA6qj1vfdf9HpMaKAqG6wXTy+1SYEzmNpKXOSsQ==}
     dependencies:
@@ -4676,44 +4687,6 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /eslint-config-alloy@4.9.0(@babel/preset-react@7.18.6)(@typescript-eslint/eslint-plugin@5.58.0)(@typescript-eslint/parser@5.58.0)(eslint-plugin-react@7.32.2)(eslint@8.38.0)(typescript@5.0.4):
-    resolution: {integrity: sha512-4DfiN0sXByf5WuXioZrrZJdfzZw+lgdoQfFTuQyFenJ2XeIKrsXYctArLiZAoAsTxyZnmUFYqrgwUIXx26q0gg==}
-    peerDependencies:
-      '@babel/eslint-parser': 7.x
-      '@babel/preset-react': 7.x
-      '@typescript-eslint/eslint-plugin': '>=5.38.1'
-      '@typescript-eslint/parser': 5.x
-      eslint: '>=8.24.0'
-      eslint-plugin-react: '>=7.31.8'
-      eslint-plugin-vue: '>=9.5.1'
-      typescript: 4.x
-      vue-eslint-parser: 9.x
-    peerDependenciesMeta:
-      '@babel/eslint-parser':
-        optional: true
-      '@babel/preset-react':
-        optional: true
-      '@typescript-eslint/eslint-plugin':
-        optional: true
-      '@typescript-eslint/parser':
-        optional: true
-      eslint-plugin-react:
-        optional: true
-      eslint-plugin-vue:
-        optional: true
-      typescript:
-        optional: true
-      vue-eslint-parser:
-        optional: true
-    dependencies:
-      '@babel/preset-react': 7.18.6(@babel/core@7.21.4)
-      '@typescript-eslint/eslint-plugin': 5.58.0(@typescript-eslint/parser@5.58.0)(eslint@8.38.0)(typescript@5.0.4)
-      '@typescript-eslint/parser': 5.58.0(eslint@8.38.0)(typescript@5.0.4)
-      eslint: 8.38.0
-      eslint-plugin-react: 7.32.2(eslint@8.38.0)
-      typescript: 5.0.4
-    dev: true
-
   /eslint-config-prettier@8.8.0(eslint@8.38.0):
     resolution: {integrity: sha512-wLbQiFre3tdGgpDv67NQKnJuTlcUVYHas3k+DZCc2U2BadthoEY4B7hLPvAxaqdyOGCzuLfii2fqGph10va7oA==}
     hasBin: true
@@ -4793,6 +4766,15 @@ packages:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
+    dev: true
+
+  /eslint-plugin-react-hooks@4.6.0(eslint@8.38.0):
+    resolution: {integrity: sha512-oFc7Itz9Qxh2x4gNHStv3BqJq54ExXmfC+a1NjAta66IAN87Wu0R/QArgIS9qKzX3dXKPI9H5crl9QchNMY9+g==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
+    dependencies:
+      eslint: 8.38.0
     dev: true
 
   /eslint-plugin-react@7.32.2(eslint@8.38.0):
@@ -7017,7 +6999,6 @@ packages:
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /log-symbols@2.2.0:
     resolution: {integrity: sha512-VeIAFslyIerEJLXHziedo2basKbMKtTw3vfn5IzG0XTjhAVEJyNHnL2p7vc+wBDSdQuUpNw3M2u6xb9QsAY5Eg==}

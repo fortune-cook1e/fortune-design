@@ -1,4 +1,4 @@
-import { createContext, FC, ReactNode, useContext, useMemo } from 'react'
+import React, { createContext, FC, ReactNode, useContext, useMemo } from 'react'
 
 export interface CustomProviderProps {
   classPrefix?: string

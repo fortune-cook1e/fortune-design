@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from 'react'
 
 import { useClassNames } from '../hooks'
+import Ripple from '../Ripple'
 
 export interface ButtonProps {
   loading?: boolean
@@ -34,6 +35,7 @@ const Button: FC<ButtonProps> = ({ loading = true, className, active, onClick, c
   return (
     <button onClick={onClick} className={classes}>
       {children}
+      <Ripple />
     </button>
   )
 }
