@@ -63,7 +63,7 @@ const Ripple: FC<RippleProps> = props => {
   }, [handleMouseDown])
 
   return (
-    <span {...rest} className={classes}>
+    <span {...rest} className={classes} ref={triggerRef}>
       <Transition in={rippling} enteringClassName={prefix('rippling')} onEntered={handleRippled}>
         {(props, ref) => {
           const { className, ...transitionRest } = props

@@ -1,3 +1,5 @@
+@import url('./themes.less');
+
 :root {
   @primary-color: #3498ff;
 
@@ -5,16 +7,10 @@
   --fortune-color-focus-ring: fade(@primary-color, 25%);
 
   // Btn
-  --fortune-btn-default-text: #575757;
-  --fortune-btn-default-bg: #f7f7fa;
-  --fortune-btn-default-radius: 6px;
-  --fortune-btn-default-hover-text: none;
-  --fortune-btn-default-hover-bg: #e5e5ea;
-  --fortune-btn-transtion: color 0.15s ease-out, background-color 0.15s ease-out;
-
-  // Global button ripple switch
-  @button-ripple: true; // @deprecated use @enable-ripple-effect instead
-  @enable-ripple-effect: @button-ripple;
-  @btn-ripple-background-color: rgba(0, 0, 0, 0.2); // @deprecated use @ripple-bg instead
-  @ripple-bg: @btn-ripple-background-color;
+  --fortune-btn-default-text: @btn-default-text;
+  --fortune-btn-default-bg: @btn-default-bg;
+  --fortune-btn-default-radius: @btn-default-radius;
+  --fortune-btn-default-hover-text: @btn-default-hover-text;
+  --fortune-btn-default-hover-bg: @btn-default-hover-bg;
+  --fortune-btn-transtion: @btn-default-transition;
 }
