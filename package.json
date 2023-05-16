@@ -5,6 +5,9 @@
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/esm/index.d.ts",
+  "directories": {
+    "lib": "cjs/"
+  },
   "scripts": {
     "dev": "pnpm -C docs install && pnpm -C docs dev",
     "build": "pnpm run /^build:.*/",
