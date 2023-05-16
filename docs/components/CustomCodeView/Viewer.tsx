@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 import 'react-code-view/styles/react-code-view.css'
 
 import { Button } from 'fortune-design'
