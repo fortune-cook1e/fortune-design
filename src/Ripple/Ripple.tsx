@@ -2,11 +2,11 @@ import getOffset from 'dom-lib/getOffset'
 import on from 'dom-lib/on'
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react'
 
-import { Offset, WithAsProps } from '../@types/common'
+import { Offset } from '../@types/common'
 import Transition from '../Animation/Transition'
 import { useClassNames } from '../hooks'
 
-export interface RippleProps extends WithAsProps {
+export interface RippleProps {
   onMouseDown?: (position: any, event: React.MouseEvent) => void
   className?: string
 }

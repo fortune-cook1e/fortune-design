@@ -25,6 +25,17 @@ export interface Offset {
   height: number
 }
 
+export interface StandardProps {
+  /** Additional classes */
+  className?: string
+
+  /** Primary content */
+  children?: React.ReactNode
+
+  /** Additional style */
+  style?: React.CSSProperties
+}
+
 export interface WithAsProps<As extends React.ElementType | string = React.ElementType>
   extends StandardProps {
   /** You can use a custom element for this component */

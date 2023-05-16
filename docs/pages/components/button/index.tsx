@@ -1,4 +1,4 @@
-import { Button } from 'fortune-design'
+import React, { Button } from 'fortune-design'
 
 import PageContent from '@/components/PageContent'
 

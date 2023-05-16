@@ -5,6 +5,13 @@
   }
 }
 
+.button-disabled(@rules) {
+  &:disabled,
+  &.fortune-btn-disabled {
+    @rules();
+  }
+}
+
 .button-size(@height;@space-x;@font-size;@line-height;@icon-size) {
   @space-y: ((@height - @line-height) / 2);
 
@@ -17,6 +24,26 @@
   .button-size(
     @height: 36px;
     @space-x: 12px;
+    @font-size: 14px;
+    @line-height: 20px;
+    @icon-size: 16px;
+  );
+}
+
+.button-size-lg() {
+  .button-size(
+    @height: 42px;
+    @space-x: 16px;
+    @font-size: 16px;
+    @line-height: 22px;
+    @icon-size: 20px;
+  );
+}
+
+.button-size-sm() {
+  .button-size(
+    @height: 30px;
+    @space-x: 10px;
     @font-size: 14px;
     @line-height: 20px;
     @icon-size: 16px;

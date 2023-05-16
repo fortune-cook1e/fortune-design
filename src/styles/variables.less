@@ -1,16 +1,30 @@
-@import url('./themes.less');
+@import url('./colors.less');
 
-:root {
-  @primary-color: #3498ff;
+// common
+@cursor-disabled: not-allowed;
+@font-size-base: 14px;
+@link-color: #1890ff;
+@text-color: rgba(0, 0, 0, 0.65);
+@border-radius-base: 2px;
+@border-color-base: #d9d9d9;
 
-  // utilities
-  --fortune-color-focus-ring: fade(@primary-color, 25%);
+// Btn
+@btn-default-text: @gray;
+@btn-default-bg: #f7f7fa;
+@btn-default-radius: 6px;
+@btn-default-hover-text: none;
+@btn-default-hover-bg: #e5e5ea;
+@btn-default-transition: color 0.5s ease-out, background-color 0.5s ease-out;
 
-  // Btn
-  --fortune-btn-default-text: @btn-default-text;
-  --fortune-btn-default-bg: @btn-default-bg;
-  --fortune-btn-default-radius: @btn-default-radius;
-  --fortune-btn-default-hover-text: @btn-default-hover-text;
-  --fortune-btn-default-hover-bg: @btn-default-hover-bg;
-  --fortune-btn-transtion: @btn-default-transition;
-}
+@btn-primary-text: @primary-color;
+
+@btn-active-text: #fff;
+@btn-active-bg: @primary-color;
+@btn-loading-spin-default-diameter: 18px;
+@btn-loading-spin-ring-wide: 3px;
+
+// Ripple
+@button-ripple: true; // @deprecated use @enable-ripple-effect instead
+@enable-ripple-effect: @button-ripple;
+@btn-ripple-background-color: rgba(0, 0, 0, 0.2); // @deprecated use @ripple-bg instead
+@ripple-bg: @btn-ripple-background-color;
