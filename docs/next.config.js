@@ -42,7 +42,7 @@ const nextConfig = {
             sourceMap: true,
             lessOptions: {
               globalVars: {
-                rootPath: __DEV__ ? resolvePath('../src/') : '~fortune-design'
+                rootPath: __DEV__ ? resolvePath('../src/') : '~fortune-design/lib'
               }
             }
           }
