@@ -14,8 +14,8 @@ dependencies:
     specifier: 10.4.14
     version: 10.4.14(postcss@8.4.22)
   fortune-design:
-    specifier: ^1.0.4
-    version: 1.0.4
+    specifier: ^1.0.5
+    version: 1.0.5
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
@@ -1523,8 +1523,8 @@ packages:
       is-callable: 1.2.7
     dev: true
 
-  /fortune-design@1.0.4:
-    resolution: {integrity: sha512-BHvkO5nLPKypnBERl10EMOMhKnJLpVPHRcuc9ei6yq1/i9SAt6aev1txuoSZtPkpryxe0g7HGUx/m6tQtsQVvA==}
+  /fortune-design@1.0.5:
+    resolution: {integrity: sha512-52fB0AwOxWxhsKEOxSeoerWa2YwXturn1BTcph49SJ7sB3VEQQDBbK9/xbru2YkODW6u3zA82Ha4+TEhtJk/4A==}
     dependencies:
       '@babel/runtime-corejs3': 7.21.5
       classnames: 2.3.2

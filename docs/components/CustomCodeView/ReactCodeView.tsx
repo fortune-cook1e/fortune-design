@@ -1,5 +1,3 @@
-import 'react-code-view/styles/react-code-view.css'
-
 import { FC } from 'react'
 import CodeView, { CodeViewProps } from 'react-code-view'
 

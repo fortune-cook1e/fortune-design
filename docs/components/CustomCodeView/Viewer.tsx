@@ -1,5 +1,3 @@
-import 'react-code-view/styles/react-code-view.css'
-
 import { Button } from 'fortune-design'
 import { FC, useCallback, useEffect, useState } from 'react'
 import CodeView from 'react-code-view'

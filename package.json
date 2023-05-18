@@ -1,6 +1,6 @@
 {
   "name": "fortune-design",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A react ui component library",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "pnpm -C docs install && pnpm -C docs dev",
-    "build": "pnpm run /^build:.*/",
+    "build": "pnpm run clear && pnpm run /^build:.*/",
     "build:gulp": "gulp build --gulpfile scripts/gulpFile.js",
     "build:webpack": "webpack --mode production",
     "build:types": "tsc --project tsconfig.build.json --emitDeclarationOnly --outDir lib/cjs && tsc --project tsconfig.build.json --emitDeclarationOnly --outDir lib/esm",
