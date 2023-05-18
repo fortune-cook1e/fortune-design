@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('next').NextConfig} */
 
 const { resolve } = require('path')
@@ -38,15 +37,15 @@ const nextConfig = {
           loader: 'postcss-loader'
         },
         {
-          loader: 'less-loader'
-          // options: {
-          //   sourceMap: true,
-          //   lessOptions: {
-          //     globalVars: {
-          //       rootPath: __DEV__ ? '../../../src/' : '~fortune-design'
-          //     }
-          //   }
-          // }
+          loader: 'less-loader',
+          options: {
+            sourceMap: true,
+            lessOptions: {
+              globalVars: {
+                rootPath: __DEV__ ? resolvePath('../src/') : '~fortune-design'
+              }
+            }
+          }
         }
       ]
     })
@@ -83,7 +82,7 @@ const nextConfig = {
 
     if (__DEV__) {
       Object.assign(config.resolve.alias, {
-        // 'fortune-design': resolvePath('../src'),
+        'fortune-design': resolvePath('../src'),
         react: resolvePath('./node_modules/react'),
         'react-dom': resolvePath('./node_modules/react-dom')
       })

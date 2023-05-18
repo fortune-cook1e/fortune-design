@@ -12,7 +12,7 @@ const CustomProvider: FC<CustomProviderProps> = ({ classPrefix, children }) => {
     return {
       classPrefix
     }
-  }, [])
+  }, [classPrefix])
 
   return <CustomContext.Provider value={value}>{children}</CustomContext.Provider>
 }

@@ -10,24 +10,10 @@ export interface ButtonProps extends WithAsProps {
   style?: React.CSSProperties
   active?: boolean
   disabled?: boolean
-  onClick?: () => void
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
   size?: 'large' | 'small' | 'md'
   type?: 'primary' | 'default'
   children?: ReactNode
-  // onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
-  // type?: 'button' | 'reset' | 'submit'
-  // disabled?: boolean
-  // size?: 'large' | 'small' | 'default'
-  // htmlType?: 'button' | 'submit' | 'reset'
-  // icon?: ReactNode
-  // shape?: 'circle' | 'round'
-  // block?: boolean
-  // danger?: boolean
-  // ghost?: boolean
-  // href?: string
-  // target?: string
-  // rel?: string
-  // title?: string
 }
 
 const Button: FC<ButtonProps> = ({

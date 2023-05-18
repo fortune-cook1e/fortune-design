@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import { FC } from 'react'
+import { AiFillHome } from 'react-icons/ai'
 
 const HeaderNav: FC = () => {
   const router = useRouter()
@@ -11,10 +12,10 @@ const HeaderNav: FC = () => {
   return (
     <div className='w-full h-16 bg-blue-300 flex items-center px-8'>
       <div
-        className='w-8 h-8 rounded-full bg-white text-center leading-8 text-black font-bold cursor-pointer hover:scale-125 duration-300'
+        className='w-12 h-12 flex items-center justify-center rounded-full bg-white text-black font-bold cursor-pointer'
         onClick={goHome}
       >
-        F
+        <AiFillHome className='text-3xl hover:scale-125 duration-300' />
       </div>
     </div>
   )
