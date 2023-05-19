@@ -2,5 +2,9 @@
   {
     "name": "Button",
     "id": "button"
+  },
+  {
+    "name": "Space",
+    "id": "space"
   }
 ]

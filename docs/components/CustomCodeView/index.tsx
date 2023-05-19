@@ -1,4 +1,4 @@
-import { Button } from 'fortune-design'
+import { Button, Space } from 'fortune-design'
 import { FC, useCallback, useEffect, useState } from 'react'
 
 import { canUseDom } from '@/utils'
@@ -40,7 +40,7 @@ const CustomCodeView: FC<CustomCodeViewProps> = ({ dependencies, source, height 
       <ReactCodeView
         style={{ minHeight: height }}
         beforeCompile={setRenderCode}
-        dependencies={{ Button }}
+        dependencies={dependencies}
       >
         {source}
       </ReactCodeView>

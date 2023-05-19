@@ -13,7 +13,7 @@
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11",
     "autoprefixer": "10.4.14",
-    "fortune-design": "^1.0.6",
+    "fortune-design": "^1.0.7",
     "lodash": "^4.17.21",
     "next": "13.3.0",
     "react": "18.2.0",
